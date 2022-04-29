@@ -13,7 +13,7 @@ int main(){
     /*Testando fila_tamanho*/
     printf("O tamanho da fila agora é de %d elementos\n", fila_tamanho(f)); 
     /*Testando o queue com elementos aleatórios*/
-    for(i=0; i<50; i++){ 
+    for(i=0; i<MAX; i++){ 
         queue(f, rand()%100);
     }
     printf("O tamanho da fila agora é de %d elementos\n", fila_tamanho(f));
