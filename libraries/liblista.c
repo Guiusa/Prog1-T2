@@ -4,10 +4,11 @@
 
 lista_t* lista_cria (){
     /*alocando espaço e retornando nulo pra caso de erro*/
-    lista_t* l = malloc(sizeof(lista_t*));
+    lista_t* l = malloc(sizeof(lista_t));
     if(l==NULL)
         return NULL;
 
+    l->ini = NULL;
     l->tamanho = 0;
     return l;
 }
@@ -85,8 +86,10 @@ int lista_insere_fim (lista_t* l, int elemento){
 int lista_insere_ordenado (lista_t* l, int elemento){
     /*criando nodo em retornando em caso de erro*/
     nodo_l_t* nodo = malloc(sizeof(nodo_l_t));
+    
     if(nodo==NULL)
         return 0;
+    
     nodo->elemento = elemento;
     nodo->prox = NULL;
     
