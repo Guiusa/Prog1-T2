@@ -15,22 +15,25 @@ lista_t* lista_cria (){
 }
 
 lista_t* lista_destroi (lista_t* l){
-    nodo_l_t* nodo1 = l->ini;
+    nodo_l_t* aux1;
+    nodo_l_t* aux2;
+    
     /*Liberando espaço em caso de lista vazia*/
-    if(nodo1 == NULL){ 
+    aux1 = l->ini;
+    if(aux1 == NULL){ 
         free(l);
         return NULL;
     }
     /*nodo2 e nodo1 vão iterando e liberando espaço pra cada nodo da lista*/
-    nodo_l_t* nodo2 = l->ini->prox;
-    while(nodo2!=NULL){
-        free(nodo1);
-        nodo1 = nodo2;
-        nodo2 = nodo2->prox;
+    aux2 = l->ini->prox;
+    while(aux2!=NULL){
+        free(aux1);
+        aux1 = aux2;
+        aux2 = aux2->prox;
     }
 
     /*liberar espaço para nodo1 e lista*/
-    free(nodo1);
+    free(aux1);
     free(l);
 
     return NULL;
@@ -178,7 +181,6 @@ int lista_retira_fim (lista_t* l, int* elemento){
 
 int lista_retira_elemento (lista_t *l, int *elemento){
     nodo_l_t* aux;
-
     nodo_l_t* liberarAux;
 
     /*Se a lista estiver vazia, retorna sem tirar elemento*/

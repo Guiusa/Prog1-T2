@@ -3,6 +3,7 @@
 #include <stdio.h>
 
 fila_t* fila_cria(){
+    /*inicializando a fila e apontando os ponteiros ini e fim pra nulo*/
     fila_t* fila = malloc(sizeof(fila_t));
     if(fila==NULL)
         return NULL;
@@ -17,7 +18,8 @@ fila_t* fila_cria(){
 fila_t* fila_destroi (fila_t* f){
     nodo_f_t* p;
 
-    if(fila_vazia(f)){ /*Liberando espaço em caso de fila vazia*/
+    /*Liberando espaço em caso de fila vazia*/
+    if(fila_vazia(f)){ 
         free(f);
         return NULL;
     }
